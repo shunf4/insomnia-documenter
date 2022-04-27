@@ -18,7 +18,13 @@
     {#each data.rows as row}
       <div class="row">
         <div class="name">{row.name}</div>
-        <div class="value">{@html row.value}</div>
+        <div class="value">
+          {#if row.type === 'file' }
+            {@html '[File: ' + row.fileName + ']'}
+          {:else}
+            {@html row.value}
+          {/if}
+        </div>
       </div>
       {#if row.description}
       <div class="row description">

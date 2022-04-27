@@ -8,7 +8,7 @@ async function app() {
 
   const url = process.env.NODE_ENV === 'demo'
     ? '/insomnia-documenter/insomnia.json'
-    : `${rootPath}/insomnia.json`;
+    : location.hash ? location.hash.substring(1) : `./insomnia.json`;
 
   window.INSOMNIA_URL = url;
 

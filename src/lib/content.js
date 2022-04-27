@@ -34,7 +34,9 @@ class BodyParser {
       return {
         name: p.name,
         value: p.value,
-        description: p.description
+        description: p.description,
+        type: p.type,
+        fileName: p.fileName
       };
     });
 
@@ -78,7 +80,9 @@ class ContentGenerator {
       rows.push({
         name: param.name,
         value: param.value,
-        description: param.description
+        description: param.description,
+        type: param.type,
+        fileName: param.fileName
       });
     });
 
