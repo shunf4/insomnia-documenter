@@ -119,7 +119,7 @@
     <hr />
   </div>
   <div class="right">
-    <div class="code-example">
+    <!-- <div class="code-example">
       <div class="header">
         <div class="title">Example request:</div>
         <div class="copy">
@@ -127,7 +127,7 @@
         </div>
       </div>
       <pre bind:this={codeElement}>{@html exampleHTML}</pre>
-    </div>
+    </div> -->
     {#if reqData.exampleResponses && reqData.exampleResponses.length}
       {#each reqData.exampleResponses as example}
         {#if example.value}

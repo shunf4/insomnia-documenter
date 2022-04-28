@@ -64,14 +64,14 @@
             {/if}
         </div>
         <div class="right">
-            <div class="language-selector">
+            <!-- <div class="language-selector">
                 <Select
                         items={languages}
                         bind:selectedValue
                         isClearable={false}
                         isSearchable={false}
                 />
-            </div>
+            </div> -->
         </div>
     </div>
     <Rows content={content} {env} {language} {cookiejars}/>
