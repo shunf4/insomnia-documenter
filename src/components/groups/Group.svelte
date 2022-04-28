@@ -2,7 +2,7 @@
   import Request from './Request.svelte';
 
   export let root = false;
-  export let expanded = false;
+  export let expanded = true;
   export let name;
   export let children;
   export let requests;

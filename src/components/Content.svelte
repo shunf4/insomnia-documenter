@@ -51,7 +51,7 @@
   $: content = [...groups, ...requests];
   $: description = workspace.description && markdown.makeHtml(applyEnv(workspace.description, env));
 
-  let selectedValue = languages[0];
+  let selectedValue = languages[1];
   $: language = selectedValue.value;
 </script>
 

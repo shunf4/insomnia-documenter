@@ -48,9 +48,9 @@
   </div>
   <div class="header-right">
     <div class="run">
-      <a href={runInInsomniaLink} target="_blank">
+      <!-- <a href={runInInsomniaLink} target="_blank">
         <img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia" />
-      </a>
+      </a> -->
     </div>
     <div class="environment">
       <label for="env" style="display:inline-block;">Environment:</label>

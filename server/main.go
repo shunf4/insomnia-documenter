@@ -5,11 +5,16 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"net/url"
 	"path/filepath"
 	"regexp"
 )
 
-var tmpl = template.Must(template.New("docsList.html").Parse(`
+var tmpl = template.Must(template.New("docsList.html").Funcs(template.FuncMap{
+	"ToJsonURL": func(jsonFileName string) string {
+		return url.QueryEscape("../" + jsonFileName)
+	},
+}).Parse(`
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,7 +27,7 @@ var tmpl = template.Must(template.New("docsList.html").Parse(`
     <h1>Insomnia API Documents</h1>
     <ol>
         {{ range .DataFiles }}
-        <li><a target="_blank" href="./documenter/index.html#../{{ . }}">{{ . }}</a></li>
+        <li><a target="_blank" href="./documenter/index.html?json={{ ToJsonURL . }}">{{ . }}</a></li>
         {{ else }}
         <p>No documents for now.</p>
         {{ end }}

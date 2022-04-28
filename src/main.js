@@ -5,10 +5,11 @@ import CuteConfig from './lib/cuteConfig';
 async function app() {
   const root = document.getElementById('app');
   const rootPath = root.getAttribute('data-root') || '';
+  const jsonUrlParam = new URLSearchParams(window.location.search).get('json');
 
   const url = process.env.NODE_ENV === 'demo'
     ? '/insomnia-documenter/insomnia.json'
-    : location.hash ? location.hash.substring(1) : `./insomnia.json`;
+    : jsonUrlParam ? jsonUrlParam : `./insomnia.json`;
 
   window.INSOMNIA_URL = url;
 
