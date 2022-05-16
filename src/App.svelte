@@ -34,43 +34,6 @@
   <title>{config.workspace.name}</title>
 </svelte:head>
 
-<header style="border-top: 6px solid {color !== null ? color : '#6a57d5'};">
-  <div class="header-left">
-    <span class="hamburger-toggler" on:click={toggleHamburger}>
-      <i class="fa fa-bars" aria-hidden="true" />
-    </span>
-
-    <div class="logo">
-      <img src="logo.png" alt={config.workspace.name} />
-    </div>
-
-    <h1 class="title">{config.workspace.name}</h1>
-  </div>
-  <div class="header-right">
-    <div class="run">
-      <!-- <a href={runInInsomniaLink} target="_blank">
-        <img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia" />
-      </a> -->
-    </div>
-    <div class="environment">
-      <label for="env" style="display:inline-block;">Environment:</label>
-      <select id="env" bind:value={envId}>
-        {#each config.environments as environment, idx}
-          <option value={idx}>{environment.name}</option>
-        {/each}
-      </select>
-    </div>
-    <span
-      class="example-toggler"
-      class:inactive={!exampleVisible}
-      on:click={toggleExample}
-      title="Toggle request examples"
-    >
-      <i class="fa fa-code" aria-hidden="true" />
-    </span>
-  </div>
-</header>
-
 <section class="wrapper" class:hide-right={!exampleVisible}>
   <Sidebar
     {requests}
@@ -78,6 +41,42 @@
     workspace={config.workspace}
     visible={menuVisible}
   />
+  <header style="margin-left: 260px; border-top: 6px solid {color !== null ? color : '#6a57d5'};">
+    <div class="header-left">
+      <span class="hamburger-toggler" on:click={toggleHamburger}>
+        <i class="fa fa-bars" aria-hidden="true" />
+      </span>
+  
+      <div class="logo">
+        <img src="logo.png" alt={config.workspace.name} />
+      </div>
+  
+      <h1 class="title">{config.workspace.name}</h1>
+    </div>
+    <div class="header-right">
+      <div class="run">
+        <!-- <a href={runInInsomniaLink} target="_blank">
+          <img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia" />
+        </a> -->
+      </div>
+      <div class="environment">
+        <label for="env" style="display:inline-block;">Environment:</label>
+        <select id="env" bind:value={envId}>
+          {#each config.environments as environment, idx}
+            <option value={idx}>{environment.name}</option>
+          {/each}
+        </select>
+      </div>
+      <span
+        class="example-toggler"
+        class:inactive={!exampleVisible}
+        on:click={toggleExample}
+        title="Toggle request examples"
+      >
+        <i class="fa fa-code" aria-hidden="true" />
+      </span>
+    </div>
+  </header>
   <Content
     {requests}
     {groups}
@@ -92,10 +91,6 @@
 
   header {
     box-sizing: border-box;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     border-bottom: 1px solid #dedede;
     background: #fff;
     z-index: 10000;
@@ -163,6 +158,6 @@
   }
 
   .wrapper {
-    margin-top: 60px;
+    margin-top: 0px;
   }
 </style>
